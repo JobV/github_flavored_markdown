@@ -85,9 +85,9 @@ func (_ *renderer) Header(out *bytes.Buffer, text func() bool, level int, _ stri
 	}
 	anchorName := sanitized_anchor_name.Create(textContent)
 
-	out.WriteString(fmt.Sprintf(`<h%d><a name="%s" class="anchor" href="#%s" rel="nofollow" aria-hidden="true"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></a>`, level, anchorName, anchorName))
+	out.WriteString(fmt.Sprintf(`<a name="%s" class="anchor" href="#%s" rel="nofollow" aria-hidden="true"><h%d>`, level, anchorName, anchorName))
 	out.WriteString(textHtml)
-	out.WriteString(fmt.Sprintf("</h%d>\n", level))
+	out.WriteString(fmt.Sprintf("</h%d></a>\n", level))
 }
 
 // extractText returns the recursive concatenation of the text content of an html node.
