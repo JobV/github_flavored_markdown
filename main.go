@@ -85,7 +85,7 @@ func (_ *renderer) Header(out *bytes.Buffer, text func() bool, level int, _ stri
 	}
 	anchorName := sanitized_anchor_name.Create(textContent)
 
-	out.WriteString(fmt.Sprintf(`<h%d><a name="%s" class="anchor" href="#%s" rel="nofollow" aria-hidden="true"><span class="octicon octicon-link"></span></a>`, level, anchorName, anchorName))
+	out.WriteString(fmt.Sprintf(`<h%d><a name="%s" class="anchor" href="#%s" rel="nofollow" aria-hidden="true"><span class="glyphicon glyphicon-link" aria-hidden="true"></span></a>`, level, anchorName, anchorName))
 	out.WriteString(textHtml)
 	out.WriteString(fmt.Sprintf("</h%d>\n", level))
 }
